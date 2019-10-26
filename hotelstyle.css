@@ -1,4 +1,6 @@
 #roomcont {
   display:grid;
-  grid:auto auto auto / ;
+}
+#room1 .bttn1 {
+  color:red;
 }
