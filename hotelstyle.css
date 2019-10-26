@@ -1,0 +1,4 @@
+#roomcont {
+  display:grid;
+  grid:auto auto auto / ;
+}
