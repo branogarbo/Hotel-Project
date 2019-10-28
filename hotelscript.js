@@ -23,7 +23,7 @@ var room5 = new Object();
 var room6 = new Object();
 
 room1.guests = [];
-room1.iscleaning = false;
+room1.cleaning = false;
 
 room2.guests = [];
 room2.cleaning = false;
@@ -41,11 +41,11 @@ room6.guests = [];
 room1.cleaning = false;
 
 function checkin(room) {
-  if (room.guests.length == 4) {
+  if (eval(room).guests.length == 4) {
     flash(qs(`#${room} .bttn1`));
   }
   else {
-    room.guests.push(qs(`#${room} input`).value);
-    console.log(room.guests);
+    eval(room).guests.push(qs(`#${room} input`).value);
+    console.log(eval(room).guests);
   }
 }
