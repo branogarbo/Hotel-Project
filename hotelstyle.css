@@ -1,5 +1,17 @@
+body {
+  margin:0;
+}
 #roomcont {
   display:grid;
+  place-content:space-around;
+  height:100vh;
+  grid-template: auto auto / auto auto auto;
+}
+#roomcont > * {
+  border:3px solid red;
+  border-radius:5px;
+  padding:20px;
+  height:208.5px;
 }
 #r1 .bttn1 {
   color:red;

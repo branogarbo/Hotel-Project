@@ -1,4 +1,7 @@
-for (i=1;i<7;i++) {
+var masterlog = [];
+var currtime = new Date().toUTCString();
+
+for (i=1;i<=6;i++) {
   eval(`
     var room${i} = new Object();
     room${i}.guests = [];
@@ -11,10 +14,8 @@ function qs(sel) {
 }
 
 function flash(sel) {
-  var originalcolor = sel.getComputedStyle;
+  var originalcolor = window.getComputedStyle(sel,null).getPropertyValue('color');
   
-  // try make for loop //
-
   for (i=0;i<3;i++) {
     eval(`
       setTimeout(()=>{sel.style = "color:yellow;"}, ${120*i+60});
@@ -24,28 +25,51 @@ function flash(sel) {
   setTimeout(()=>{sel.style = `color:${originalcolor};`}, 420);
 }
 
+// Cant assign these to variables because it messes the code up:
+
+// eval(room).guests = array of guests checked in to that room.
+// qs(`#${room} input`) = input field that you check in and out guests with.
+
+function addel(position,element,content) {
+  var newitem = document.createElement(element);
+  var newtext = document.createTextNode(content);
+  var position = qs(position);
+
+  newitem.appendChild(newtext);
+  position.appendChild(newitem);
+}
+
+function remel(position) {
+  var child = qs(position);
+  var parent = child.parentNode;
+
+  parent.removeChild(child);
+}
+
 function checkin(room) {
-  if (eval(room).guests.length == 4) {
+  if (eval(room).guests.length == 4 || eval(room).cleaning == true || qs(`#${room} input`).value == "" || !isNaN(parseInt(qs(`#${room} input`).value))) {
     flash(qs(`#${room} .bttn1`));
   }
   else {
     eval(room).guests.push(qs(`#${room} input`).value);
-    console.log(eval(room).guests);
+    addel(`#${room} ol`,'li',qs(`#${room} input`).value);
+    masterlog.push([room,qs(`#${room} input`).value,currtime]);
   }
   qs(`#${room} input`).value = "";
 }
 
 function checkout(room) {
-  if (eval(room).guests.length == 0) {
+  if (qs(`#${room} input`).value == '$all') {
+    eval(room).guests = [];
+    remel(`#${room} ol`);
+    addel(`#${room}`,'ol','');
+  }
+  else if (qs(`#${room} input`).value < 1 || qs(`#${room} input`).value > 4 || qs(`#${room} input`).value == "" || eval(room).guests.length == 0 || isNaN(parseInt(qs(`#${room} input`).value)))  {
     flash(qs(`#${room} .bttn2`));
   }
-  else if (qs(`#${room} input`).value == '$all') {
-    eval(room).guests = [];
-    console.log(eval(room).guests);
-  }
   else {
-    eval(room).guests.splice((qs(`#${room} input`).value)-1,1);
-    console.log(eval(room).guests);
+    eval(room).guests.splice(qs(`#${room} input`).value-1,1);
+    remel(`#${room} li:nth-of-type(${qs(`#${room} input`).value})`)
   }
   qs(`#${room} input`).value = "";
 }
