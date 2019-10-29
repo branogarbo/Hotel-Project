@@ -33,10 +33,9 @@ function flash(sel) {
 function addel(position,element,content) {
   var newitem = document.createElement(element);
   var newtext = document.createTextNode(content);
-  var position = qs(position);
 
   newitem.appendChild(newtext);
-  position.appendChild(newitem);
+  qs(position).appendChild(newitem);
 }
 
 function remel(position) {
