@@ -31,11 +31,11 @@ function flash(sel) {
 // qs(`#${room} input`) = input field of that room by which you check in and out guests with.
 
 function addel(position,element,content) {
-  var newitem = document.createElement(element);
-  var newtext = document.createTextNode(content);
+  var newel = document.createElement(element);
+  var newcont = document.createTextNode(content);
 
-  newitem.appendChild(newtext);
-  qs(position).appendChild(newitem);
+  newitem.appendChild(newcont);
+  qs(position).appendChild(newel);
 }
 
 function remel(position) {
