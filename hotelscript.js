@@ -39,10 +39,10 @@ function addel(position,element,content) {
 }
 
 function remel(position) {
-  var child = qs(position);
-  var parent = child.parentNode;
+  var elem = qs(position);
+  var parent = elem.parentNode;
 
-  parent.removeChild(child);
+  parent.removeChild(elem);
 }
 
 function checkin(room) {
