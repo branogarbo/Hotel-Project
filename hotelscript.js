@@ -34,7 +34,7 @@ function addel(position,element,content) {
   var newel = document.createElement(element);
   var newcont = document.createTextNode(content);
 
-  newitem.appendChild(newcont);
+  newel.appendChild(newcont);
   qs(position).appendChild(newel);
 }
 
