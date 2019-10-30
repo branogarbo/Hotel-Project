@@ -28,7 +28,7 @@ function flash(sel) {
 // Cant assign these to variables because it messes the code up:
 
 // eval(room).guests = array of guests checked in to that room.
-// qs(`#${room} input`) = input field of that room by which you check guests in and out with.
+// qs(`#${room} input`) = input field of that room by which you check in and out guests with.
 
 function addel(position,element,content) {
   var newel = document.createElement(element);
