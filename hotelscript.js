@@ -28,26 +28,25 @@ function flash(sel) {
 // Cant assign these to variables because it messes the code up:
 
 // eval(room).guests = array of guests checked in to that room.
-// qs(`#${room} input`) = input field that you check in and out guests with.
+// qs(`#${room} input`) = input field of that room by which you check guests in and out with.
 
 function addel(position,element,content) {
-  var newitem = document.createElement(element);
-  var newtext = document.createTextNode(content);
-  var position = qs(position);
+  var newel = document.createElement(element);
+  var newcont = document.createTextNode(content);
 
-  newitem.appendChild(newtext);
-  position.appendChild(newitem);
+  newel.appendChild(newcont);
+  qs(position).appendChild(newel);
 }
 
 function remel(position) {
-  var child = qs(position);
-  var parent = child.parentNode;
+  var elem = qs(position);
+  var parent = elem.parentNode;
 
-  parent.removeChild(child);
+  parent.removeChild(elem);
 }
 
 function checkin(room) {
-  if (eval(room).guests.length == 4 || eval(room).cleaning == true || qs(`#${room} input`).value == "" || !isNaN(parseInt(qs(`#${room} input`).value))) {
+  if (eval(room).guests.length == 4 || eval(room).cleaning == true || qs(`#${room} input`).value == "" || !isNaN(parseInt(qs(`#${room} input`).value)) || qs(`#${room} input`).value == '$all') {
     flash(qs(`#${room} .bttn1`));
   }
   else {
@@ -56,6 +55,7 @@ function checkin(room) {
     masterlog.push([room,qs(`#${room} input`).value,currtime]);
   }
   qs(`#${room} input`).value = "";
+  console.log(masterlog);
 }
 
 function checkout(room) {

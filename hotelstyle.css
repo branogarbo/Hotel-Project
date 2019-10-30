@@ -1,5 +1,10 @@
 body {
   margin:0;
+  background:#FDCA40;
+}
+* {
+  font-family: 'Nunito', sans-serif;
+  color:#31393C;
 }
 #roomcont {
   display:grid;
@@ -8,11 +13,9 @@ body {
   grid-template: auto auto / auto auto auto;
 }
 #roomcont > * {
-  border:3px solid red;
-  border-radius:5px;
+  border:3px solid #2176FF;
+  border-radius:7px;
   padding:20px;
   height:208.5px;
-}
-#r1 .bttn1 {
-  color:red;
+  background:#33A1FD;
 }
