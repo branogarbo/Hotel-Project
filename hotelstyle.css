@@ -1,21 +1,42 @@
 body {
   margin:0;
-  background:#FDCA40;
 }
 * {
-  font-family: 'Nunito', sans-serif;
+  font-family:'Nunito',sans-serif;
   color:#31393C;
 }
 #roomcont {
   display:grid;
   place-content:space-around;
   height:100vh;
-  grid-template: auto auto / auto auto auto;
+  grid-template: auto auto auto / auto auto auto;
 }
-#roomcont > * {
-  border:3px solid #2176FF;
+#header {
+  grid-area: 1 / 1 / 1 / 4;
+  display:flex;
+  align-items:center;
+}
+.room {
   border-radius:7px;
-  padding:20px;
-  height:208.5px;
-  background:#33A1FD;
+  padding:20px 30px;
+  height:214.5px;
+  background:#f1f4f8;
+  transition:background 0.1s;
+}
+#header > svg {
+  width:75px;
+  height:75px;
+  margin-right:10px;
+}
+.checkbttn {
+  background:#ffffff;
+  border-radius:3px;
+  border:2px solid #f1f4f8;
+}
+.room svg {
+  fill:#31393C;
+  width:25px;
+  height:25px;
+  float:right;
+  margin-top:19.92px;
 }
