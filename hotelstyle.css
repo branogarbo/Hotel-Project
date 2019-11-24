@@ -1,42 +1,82 @@
+body > * {
+  animation:fadein 0.4s ease-out 0.1s both;
+}
+@keyframes fadein {
+  0% {
+    transform:translateY(100px);
+    opacity:0;
+  }
+  50% {opacity:0.4;}
+  100% {
+    transform:translateY(0);
+    opacity:1;
+  }
+}
+
 body {
   margin:0;
+  overflow:hidden;
 }
+
 * {
   font-family:'Nunito',sans-serif;
   color:#31393C;
 }
+
 #roomcont {
   display:grid;
   place-content:space-around;
   height:100vh;
   grid-template: auto auto auto / auto auto auto;
 }
+
 #header {
   grid-area: 1 / 1 / 1 / 4;
   display:flex;
   align-items:center;
 }
+
 .room {
   border-radius:7px;
   padding:20px 30px;
   height:214.5px;
-  background:#f1f4f8;
+  background:#e0e7f0;
   transition:background 0.1s;
 }
+
 #header > svg {
   width:75px;
   height:75px;
   margin-right:10px;
 }
+
 .checkbttn {
   background:#ffffff;
+  outline:none;
   border-radius:3px;
-  border:2px solid #f1f4f8;
+  padding:3px;
+  border:none;
 }
-.room svg {
+
+.room img {
   fill:#31393C;
   width:25px;
   height:25px;
   float:right;
   margin-top:19.92px;
+}
+
+.room input {
+  padding:3px;
+  border-radius:3px;
+  border:none;
+  outline:none;
+}
+
+.room img {animation:lockerr 0.4s infinite paused;}
+@keyframes lockerr {
+  15% {transform:rotate(20deg) scale(1.2)}
+  40% {transform:rotate(-20deg) scale(1.2)}
+  65% {transform:rotate(20deg) scale(1.2)}
+  90% {transform:scale(1) rotate(0)}
 }
