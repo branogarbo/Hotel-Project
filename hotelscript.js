@@ -45,6 +45,18 @@ function check(room) {
   if (qs(`#${room} input`).value == "") {
     flash(`#${room} button`);
   }
+  else if (qs(`#${room} input`).value.includes(',')) {
+    var indentry = qs(`#${room} input`).value.split(',');
+    indentry.forEach(entry => {
+      if (!isNaN(Number(entry))) {
+        for (i=0;i<indentry.length;i++) {
+          indentry[i] = indentry[i]-i;
+        }
+      }
+      qs(`#${room} input`).value = entry;
+      check(room);
+    });
+  }
   else if (isNaN(Number(qs(`#${room} input`).value)) && qs(`#${room} input`).value != "$all") {
     checkin(room);
   }
