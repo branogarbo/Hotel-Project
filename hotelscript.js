@@ -43,9 +43,9 @@ function remel(position) {
 
 function check(room) {
   if (qs(`#${room} input`).value == "") {
-    flash(`#${room} .checkbttn`);
+    flash(`#${room} button`);
   }
-  else if (isNaN(parseInt(qs(`#${room} input`).value)) && qs(`#${room} input`).value != '$all') {
+  else if (isNaN(Number(qs(`#${room} input`).value)) && qs(`#${room} input`).value != "$all") {
     checkin(room);
   }
   else {
@@ -56,33 +56,36 @@ function check(room) {
 
 function checkin(room) {
   if (eval(room).guests.length == 4) {
-    flash(`#${room} .checkbttn`);
-    qs(`#${room} input`).placeholder = "Enter number to check out";
+    flash(`#${room} button`);
   }
   else {
     eval(room).guests.push(qs(`#${room} input`).value);
     addel(`#${room} ol`,'li',qs(`#${room} input`).value);
     qs(`#${room} input`).placeholder = "Guests appear below";
     masterlog.push([room,qs(`#${room} input`).value,currtime()]);
+    if (eval(room).guests.length == 4) {
+      qs(`#${room} input`).placeholder = "Enter number to check out";
+    }
   }
   console.clear();
   console.log(masterlog);
 }
 
 function checkout(room) {
-  if (qs(`#${room} input`).value == '$all' && eval(room).guests.length != 0) {
+  if (qs(`#${room} input`).value == "$all" && eval(room).guests.length != 0) {
     eval(room).guests = [];
     remel(`#${room} ol`);
     addel(`#${room}`,'ol','');
     qs(`#${room} input`).placeholder = "Check guests here";
   }
   else if (qs(`#${room} input`).value < 1 || qs(`#${room} input`).value > eval(room).guests.length || eval(room).guests.length == 0)  {
-    flash(`#${room} .checkbttn`);
+    flash(`#${room} button`);
     qs(`#${room} input`).placeholder = "Check guests here";
   }
   else {
     eval(room).guests.splice(qs(`#${room} input`).value-1,1);
     remel(`#${room} li:nth-of-type(${qs(`#${room} input`).value})`);
+    qs(`#${room} input`).placeholder = "Check guests here";
     if (eval(room).guests.length == 3) {
       qs(`#${room} input`).placeholder = 'Enter "$all" to clear room';
     }
@@ -101,7 +104,7 @@ function roomlock(room) {
     qs(`#${room} input`).placeholder = "This room is locked!";
     qs(`#${room} input`).style = "background:#ffffff;";
     qs(`#${room} input`).disabled = true;
-    qs(`.checkbttn`).disabled = true;
+    qs(`button`).disabled = true;
   }
   else {
     eval(room).locked = false;
@@ -109,6 +112,6 @@ function roomlock(room) {
     qs(`#${room} img`).src = "unlocked-padlock.svg";
     qs(`#${room} input`).placeholder = "Check guests here";
     qs(`#${room} input`).disabled = false;
-    qs(`.checkbttn`).disabled = false;
+    qs(`button`).disabled = false;
   }
 }

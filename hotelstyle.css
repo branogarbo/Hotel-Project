@@ -39,7 +39,7 @@ body {
 .room {
   border-radius:7px;
   padding:20px 30px;
-  height:214.5px;
+  height:217.833px;
   background:#e0e7f0;
   transition:background 0.1s;
 }
@@ -50,11 +50,11 @@ body {
   margin-right:10px;
 }
 
-.checkbttn {
+.room button {
   background:#ffffff;
   outline:none;
   border-radius:3px;
-  padding:3px;
+  padding:5px;
   border:none;
 }
 
@@ -67,7 +67,7 @@ body {
 }
 
 .room input {
-  padding:3px;
+  padding:5px;
   border-radius:3px;
   border:none;
   outline:none;
