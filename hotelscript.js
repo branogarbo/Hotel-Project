@@ -4,6 +4,18 @@ for (i=1;i<=6;i++) {
     room${i}.guests = [];
     room${i}.locked = false;
   `);
+  
+  // y aint this workin :/
+
+  addel('#roomcont','div',`
+    <div id="room${i}" class="room">
+      <img src="unlocked-padlock.svg" onclick="roomlock('room${i}')">
+      <h2>Room ${i}</h2>
+      <input type="text" onkeypress="entercheck('room${i}',event)" placeholder="Check guests here">
+      <button onmousedown="check('room${i}')">Check In/Out</button>
+      <ol></ol>
+    </div>
+  `);
 }
 
 var masterlog = [];
