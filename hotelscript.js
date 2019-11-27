@@ -1,15 +1,15 @@
-var masterlog = [];
-
-function currtime() {
-  return new Date().toUTCString();
-}
-
 for (i=1;i<=6;i++) {
   eval(`
     var room${i} = new Object();
     room${i}.guests = [];
     room${i}.locked = false;
   `);
+}
+
+var masterlog = [];
+
+function currtime() {
+  return new Date().toUTCString();
 }
 
 function qs(sel) {
@@ -41,8 +41,8 @@ function remel(position) {
   parent.removeChild(elem);
 }
 
-function enterpress(room,event) {
-  if (event.key == 'Enter') {
+function entercheck(room,event) {
+  if (event.key == "Enter") {
     check(room);
   }
 }
@@ -64,7 +64,6 @@ function check(room) {
         check(room);
       }
     }
-    console.log(indentry);
   }
   else if (isNaN(Number(qs(`#${room} input`).value)) && qs(`#${room} input`).value != "$all") {
     checkin(room);
@@ -88,8 +87,8 @@ function checkin(room) {
       qs(`#${room} input`).placeholder = "Enter number to check out";
     }
   }
-  //console.clear();
-  //console.log(masterlog);
+  console.clear();
+  console.log(masterlog);
 }
 
 function checkout(room) {
@@ -125,7 +124,7 @@ function roomlock(room) {
     qs(`#${room} input`).placeholder = "This room is locked!";
     qs(`#${room} input`).style = "background:#ffffff;";
     qs(`#${room} input`).disabled = true;
-    qs(`button`).disabled = true;
+    qs(`#${room} button`).disabled = true;
   }
   else {
     eval(room).locked = false;
@@ -133,6 +132,6 @@ function roomlock(room) {
     qs(`#${room} img`).src = "unlocked-padlock.svg";
     qs(`#${room} input`).placeholder = "Check guests here";
     qs(`#${room} input`).disabled = false;
-    qs(`button`).disabled = false;
+    qs(`#${room} button`).disabled = false;
   }
 }

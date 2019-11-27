@@ -30,10 +30,24 @@ body {
   grid-template: auto auto auto / auto auto auto;
 }
 
-#header {
-  grid-area: 1 / 1 / 1 / 4;
+#logo {
   display:flex;
   align-items:center;
+}
+
+#navbar {
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  grid-area: 1 / 2 / 1 / 4;
+}
+
+#navbar h2 {
+  margin-left:10%;
+}
+
+.navbar {
+  text-align:right;
 }
 
 .room {
@@ -44,7 +58,7 @@ body {
   transition:background 0.1s;
 }
 
-#header > svg {
+#logo > svg {
   width:75px;
   height:75px;
   margin-right:10px;
@@ -75,8 +89,8 @@ body {
 
 .room img {animation:lockerr 0.4s infinite paused;}
 @keyframes lockerr {
-  15% {transform:rotate(20deg) scale(1.2)}
-  40% {transform:rotate(-20deg) scale(1.2)}
-  65% {transform:rotate(20deg) scale(1.2)}
+  15% {transform:rotate(20deg) scale(1.1)}
+  40% {transform:rotate(-20deg) scale(1.1)}
+  65% {transform:rotate(20deg) scale(1.1)}
   90% {transform:scale(1) rotate(0)}
 }

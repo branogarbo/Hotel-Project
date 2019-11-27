@@ -7,7 +7,7 @@
   <body>
     
     <div id="roomcont">
-      <div id="header">
+      <div id="logo">
         <svg
           xmlns:dc="http://purl.org/dc/elements/1.1/"
           xmlns:cc="http://creativecommons.org/ns#"
@@ -164,10 +164,15 @@
         <h1>BRUH SUITE</h1>
       </div>
 
+      <div id="navbar">
+        <h2>rooms</h2>
+        <h2>check-in log</h2>
+      </div>
+
       <div id="room1" class="room">
         <img src="unlocked-padlock.svg" onclick="roomlock('room1')">
         <h2>Room 1</h2>
-        <input type="text" onkeypress="enterpress('room1',event)" placeholder="Check guests here">
+        <input type="text" onkeypress="entercheck('room1',event)" placeholder="Check guests here">
         <button onmousedown="check('room1')">Check In/Out</button>
         <ol></ol>
       </div>
@@ -175,7 +180,7 @@
       <div id="room2" class="room">
         <img src="unlocked-padlock.svg" onclick="roomlock('room2')">
         <h2>Room 2</h2>
-        <input type="text" onkeypress="enterpress('room2',event)" placeholder="Check guests here">
+        <input type="text" onkeypress="entercheck('room2',event)" placeholder="Check guests here">
         <button onmousedown="check('room2')">Check In/Out</button>
         <ol></ol>
       </div>
@@ -183,7 +188,7 @@
       <div id="room3" class="room">
         <img src="unlocked-padlock.svg" onclick="roomlock('room3')">
         <h2>Room 3</h2>
-        <input type="text" onkeypress="enterpress('room3',event)" placeholder="Check guests here">
+        <input type="text" onkeypress="entercheck('room3',event)" placeholder="Check guests here">
         <button onmousedown="check('room3')">Check In/Out</button>
         <ol></ol>
       </div>
@@ -191,7 +196,7 @@
       <div id="room4" class="room">
         <img src="unlocked-padlock.svg" onclick="roomlock('room4')">
         <h2>Room 4</h2>
-        <input type="text" onkeypress="enterpress('room4',event)" placeholder="Check guests here">
+        <input type="text" onkeypress="entercheck('room4',event)" placeholder="Check guests here">
         <button onmousedown="check('room4')">Check In/Out</button>
         <ol></ol>
       </div>
@@ -199,7 +204,7 @@
       <div id="room5" class="room">
         <img src="unlocked-padlock.svg" onclick="roomlock('room5')">
         <h2>Room 5</h2>
-        <input type="text" onkeypress="enterpress('room5',event)" placeholder="Check guests here">
+        <input type="text" onkeypress="entercheck('room5',event)" placeholder="Check guests here">
         <button onmousedown="check('room5')">Check In/Out</button>
         <ol></ol>
       </div>
@@ -207,7 +212,7 @@
       <div id="room6" class="room">
         <img src="unlocked-padlock.svg" onclick="roomlock('room6')">
         <h2>Room 6</h2>
-        <input type="text" onkeypress="enterpress('room6',event)" placeholder="Check guests here">
+        <input type="text" onkeypress="entercheck('room6',event)" placeholder="Check guests here">
         <button onmousedown="check('room6')">Check In/Out</button>
         <ol></ol>
       </div>
