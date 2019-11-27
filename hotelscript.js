@@ -41,21 +41,30 @@ function remel(position) {
   parent.removeChild(elem);
 }
 
+function enterpress(room,event) {
+  if (event.key == 'Enter') {
+    check(room);
+  }
+}
+
 function check(room) {
   if (qs(`#${room} input`).value == "") {
     flash(`#${room} button`);
   }
   else if (qs(`#${room} input`).value.includes(',')) {
     var indentry = qs(`#${room} input`).value.split(',');
-    indentry.forEach(entry => {
-      if (!isNaN(Number(entry))) {
-        for (i=0;i<indentry.length;i++) {
-          indentry[i] = indentry[i]-i;
-        }
+    for (i=0;i<indentry.length;i++) {
+      if (!isNaN(Number(indentry[i]))) {
+        indentry[i] = indentry[i]-i;
+        qs(`#${room} input`).value = indentry[i];
+        check(room);
       }
-      qs(`#${room} input`).value = entry;
-      check(room);
-    });
+      else {
+        qs(`#${room} input`).value = indentry[i];
+        check(room);
+      }
+    }
+    console.log(indentry);
   }
   else if (isNaN(Number(qs(`#${room} input`).value)) && qs(`#${room} input`).value != "$all") {
     checkin(room);
@@ -79,8 +88,8 @@ function checkin(room) {
       qs(`#${room} input`).placeholder = "Enter number to check out";
     }
   }
-  console.clear();
-  console.log(masterlog);
+  //console.clear();
+  //console.log(masterlog);
 }
 
 function checkout(room) {
