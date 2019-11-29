@@ -1,3 +1,8 @@
+body {
+  margin:0;
+  overflow:hidden;
+}
+
 body > * {
   animation:fadein 0.4s ease-out 0.1s both;
 }
@@ -13,11 +18,6 @@ body > * {
   }
 }
 
-body {
-  margin:0;
-  overflow:hidden;
-}
-
 * {
   font-family:'Nunito',sans-serif;
   color:#31393C;
@@ -27,12 +27,18 @@ body {
   display:grid;
   place-content:space-around;
   height:100vh;
-  grid-template: auto auto auto / auto auto auto;
+  grid-template:auto;
 }
 
 #logo {
   display:flex;
   align-items:center;
+}
+
+#logo > svg {
+  width:75px;
+  height:75px;
+  margin-right:10px;
 }
 
 #navbar {
@@ -46,10 +52,6 @@ body {
   margin-left:10%;
 }
 
-.navbar {
-  text-align:right;
-}
-
 .room {
   border-radius:7px;
   padding:20px 30px;
@@ -58,11 +60,6 @@ body {
   transition:background 0.1s;
 }
 
-#logo > svg {
-  width:75px;
-  height:75px;
-  margin-right:10px;
-}
 
 .room button {
   background:#ffffff;
@@ -72,22 +69,20 @@ body {
   border:none;
 }
 
-.room img {
-  fill:#31393C;
-  width:25px;
-  height:25px;
-  float:right;
-  margin-top:19.92px;
-}
-
 .room input {
   padding:5px;
   border-radius:3px;
   border:none;
   outline:none;
 }
-
-.room img {animation:lockerr 0.4s infinite paused;}
+.room img {
+  fill:#31393C;
+  width:25px;
+  height:25px;
+  float:right;
+  margin-top:19.92px;
+  animation:lockerr 0.4s infinite paused;
+}
 @keyframes lockerr {
   15% {transform:rotate(20deg) scale(1.1)}
   40% {transform:rotate(-20deg) scale(1.1)}

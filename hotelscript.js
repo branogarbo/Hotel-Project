@@ -1,13 +1,22 @@
-for (i=1;i<=6;i++) {
+var roomcount = 6; // change if you want different number of rooms
+
+if (roomcount > 6) {
+  qs('body').style = "overflow-y:scroll;";
+  qs('#roomcont').style = `
+    row-gap:70px;
+    margin:50px 0;
+    height:auto;
+  `;
+} 
+
+for (i=1;i<=roomcount;i++) {
   eval(`
     var room${i} = new Object();
     room${i}.guests = [];
     room${i}.locked = false;
   `);
   
-  // y aint this workin :/
-
-  addel('#roomcont','div',`
+  qs('#roomcont').insertAdjacentHTML('beforeend',`
     <div id="room${i}" class="room">
       <img src="unlocked-padlock.svg" onclick="roomlock('room${i}')">
       <h2>Room ${i}</h2>
@@ -17,8 +26,6 @@ for (i=1;i<=6;i++) {
     </div>
   `);
 }
-
-var masterlog = [];
 
 function currtime() {
   return new Date().toUTCString();
@@ -31,11 +38,11 @@ function qs(sel) {
 function flash(sel) {
   for (i=0;i<3;i++) {
     eval(`
-      setTimeout(()=>{qs(sel).style = "color:yellow;"}, ${120*i+60});
-      setTimeout(()=>{qs(sel).style = "color:red;"}, ${120*(i+1)});
-    `);
-  }
-  setTimeout(()=>{qs(sel).style = `color:#31393C`}, 420);
+      setTimeout(()=>{qs(sel).style = "color:yellow;"},${120*i+60});
+      setTimeout(()=>{qs(sel).style = "color:red;"},${120*(i+1)});
+      `);
+    }
+  setTimeout(()=>{qs(sel).style = `color:#31393C`},420);
 }
 
 function addel(position,element,content) {
@@ -59,20 +66,23 @@ function entercheck(room,event) {
   }
 }
 
+var masterlog = [];
+
 function check(room) {
   if (qs(`#${room} input`).value == "") {
     flash(`#${room} button`);
   }
   else if (qs(`#${room} input`).value.includes(',')) {
-    var indentry = qs(`#${room} input`).value.split(',');
-    for (i=0;i<indentry.length;i++) {
-      if (!isNaN(Number(indentry[i]))) {
-        indentry[i] = indentry[i]-i;
-        qs(`#${room} input`).value = indentry[i];
+    var entries = qs(`#${room} input`).value.split(',');
+    for (i=0;i<entries.length;i++) {
+      if (!isNaN(Number(entries[i]))) {
+        entries.sort();
+        entries[i] = entries[i]-i;
+        qs(`#${room} input`).value = entries[i];
         check(room);
       }
       else {
-        qs(`#${room} input`).value = indentry[i];
+        qs(`#${room} input`).value = entries[i];
         check(room);
       }
     }
@@ -87,7 +97,7 @@ function check(room) {
 }
 
 function checkin(room) {
-  if (eval(room).guests.length == 4) {
+  if (eval(room).guests.length == 4 || eval(room).guests.includes(qs(`#${room} input`).value)) {
     flash(`#${room} button`);
   }
   else {
