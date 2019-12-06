@@ -1,14 +1,44 @@
 body {
   margin:0;
+  background:#153e57ff;
   overflow:hidden;
 }
 
-body > * {
-  animation:fadein 0.4s ease-out 0.1s both;
+#backimg {
+  width:100vw;
+  position:absolute;
+  bottom:0;
+  z-index:-1;
+}
+@keyframes panup {
+  0% {transform:translateY(0);}
+  100% {transform:translateY(50%);}
+}
+
+#planets {
+  width:100vw;
+}
+
+#stars {
+  width:200vw;
+  animation:starrotate 200s linear infinite both;
+  position:absolute;
+  left:-30%;
+  bottom:-20%;
+  z-index:-1;
+}
+
+@keyframes starrotate {
+  0% {transform:rotate(0);}
+  100% {transform:rotate(360deg);}
+}
+
+body > *:not(#backimg) {
+  animation:fadein 0.45s ease-out 0.2s both;
 }
 @keyframes fadein {
   0% {
-    transform:translateY(100px);
+    transform:translateY(80px);
     opacity:0;
   }
   50% {opacity:0.4;}
@@ -27,39 +57,47 @@ body > * {
   display:grid;
   place-content:space-around;
   height:100vh;
-  grid-template:auto;
+  grid-template: auto / repeat(3,326.81px);
+}
+
+@font-face {
+  font-family:'Riviera';
+  src:url('Riviera.otf');
 }
 
 #logo {
   display:flex;
   align-items:center;
+  grid-area: 1 / 1 / 2 / 3;
 }
 
-#logo > svg {
-  width:75px;
-  height:75px;
-  margin-right:10px;
+#logo > h1 {
+  font-family:'Riviera';
+  font-size:3.5rem;
+  letter-spacing:5px;
+  color:#7161EF;
+  transform:skewX(-15deg);
 }
 
 #navbar {
   display:flex;
   justify-content:flex-end;
   align-items:center;
-  grid-area: 1 / 2 / 1 / 4;
+  grid-area: 1 / 2 / 2 / 4;
 }
 
-#navbar h2 {
+#navbar > h2 {
   margin-left:10%;
+  color:white;
 }
 
 .room {
   border-radius:7px;
   padding:20px 30px;
   height:217.833px;
-  background:#e0e7f0;
+  background:#c5c5c5;
   transition:background 0.1s;
 }
-
 
 .room button {
   background:#ffffff;

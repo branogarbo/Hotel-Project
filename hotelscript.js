@@ -1,13 +1,23 @@
 var roomcount = 6; // change if you want different number of rooms
 
 if (roomcount > 6) {
-  qs('body').style = "overflow-y:scroll;";
+  qs('body').style = `
+    overflow-y:scroll;
+    background:#ffffff;
+  `;
   qs('#roomcont').style = `
     row-gap:70px;
     margin:50px 0;
     height:auto;
   `;
-} 
+  qs('#backimg').style = "display:none";
+  qs('#logo > h1').style = `
+    color:#31393C;
+    font-size:2.5rem;
+  `;
+  qs('#navbar > h2:nth-of-type(1)').style = "color:#31393C;";
+  qs('#navbar > h2:nth-of-type(2)').style = "color:#31393C;";
+}
 
 for (i=1;i<=roomcount;i++) {
   eval(`
@@ -40,8 +50,8 @@ function flash(sel) {
     eval(`
       setTimeout(()=>{qs(sel).style = "color:yellow;"},${120*i+60});
       setTimeout(()=>{qs(sel).style = "color:red;"},${120*(i+1)});
-      `);
-    }
+    `);
+  }
   setTimeout(()=>{qs(sel).style = `color:#31393C`},420);
 }
 
@@ -66,7 +76,8 @@ function entercheck(room,event) {
   }
 }
 
-var masterlog = [];
+var checkinlog = [];
+var guestlog = [];
 
 function check(room) {
   if (qs(`#${room} input`).value == "") {
@@ -104,13 +115,17 @@ function checkin(room) {
     eval(room).guests.push(qs(`#${room} input`).value);
     addel(`#${room} ol`,'li',qs(`#${room} input`).value);
     qs(`#${room} input`).placeholder = "Guests appear below";
-    masterlog.push([room,qs(`#${room} input`).value,currtime()]);
+    checkinlog.push([room,qs(`#${room} input`).value,currtime()]);
+    if (!guestlog.includes(qs(`#${room} input`).value)) {
+      guestlog.push(qs(`#${room} input`).value);
+    }
     if (eval(room).guests.length == 4) {
       qs(`#${room} input`).placeholder = "Enter number to check out";
     }
   }
   console.clear();
-  console.log(masterlog);
+  console.log(checkinlog);
+  console.log(guestlog);
 }
 
 function checkout(room) {
