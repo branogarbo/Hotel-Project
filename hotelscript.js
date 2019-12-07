@@ -1,22 +1,22 @@
 var roomcount = 6; // change if you want different number of rooms
 
 if (roomcount > 6) {
+  qs('#backimg').style = "display:none";
+  qs('#navbar > h2:nth-of-type(1)').style = "color:#31393C;";
+  qs('#navbar > h2:nth-of-type(2)').style = "color:#31393C;";
   qs('body').style = `
     overflow-y:scroll;
     background:#ffffff;
+  `;
+  qs('#logo > h1').style = `
+    color:#31393C;
+    font-size:2.5rem;
   `;
   qs('#roomcont').style = `
     row-gap:70px;
     margin:50px 0;
     height:auto;
   `;
-  qs('#backimg').style = "display:none";
-  qs('#logo > h1').style = `
-    color:#31393C;
-    font-size:2.5rem;
-  `;
-  qs('#navbar > h2:nth-of-type(1)').style = "color:#31393C;";
-  qs('#navbar > h2:nth-of-type(2)').style = "color:#31393C;";
 }
 
 for (i=1;i<=roomcount;i++) {
@@ -124,7 +124,9 @@ function checkin(room) {
     }
   }
   console.clear();
+  console.log('Check-in Log:');
   console.log(checkinlog);
+  console.log('Guest Log:');
   console.log(guestlog);
 }
 
@@ -156,7 +158,7 @@ function roomlock(room) {
   }
   else if (eval(room).locked == false) {
     eval(room).locked = true;
-    qs(`#${room}`).style = "background:#ff9bab;";
+    qs(`#${room}`).style = "background:#ff7b91c5";
     qs(`#${room} img`).src = "locked-padlock.svg";
     qs(`#${room} input`).placeholder = "This room is locked!";
     qs(`#${room} input`).style = "background:#ffffff;";
@@ -165,7 +167,7 @@ function roomlock(room) {
   }
   else {
     eval(room).locked = false;
-    qs(`#${room}`).style = "background:#e0e7f0;";
+    qs(`#${room}`).style = "background:#bed8ffc5;";
     qs(`#${room} img`).src = "unlocked-padlock.svg";
     qs(`#${room} input`).placeholder = "Check guests here";
     qs(`#${room} input`).disabled = false;

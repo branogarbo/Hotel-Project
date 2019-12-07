@@ -88,14 +88,14 @@ body > *:not(#backimg) {
 
 #navbar > h2 {
   margin-left:10%;
-  color:white;
+  color:#EFD9CE;
 }
 
 .room {
   border-radius:7px;
   padding:20px 30px;
   height:217.833px;
-  background:#c5c5c5;
+  background:#bed8ffc5;
   transition:background 0.1s;
 }
 
@@ -113,6 +113,7 @@ body > *:not(#backimg) {
   border:none;
   outline:none;
 }
+
 .room img {
   fill:#31393C;
   width:25px;
