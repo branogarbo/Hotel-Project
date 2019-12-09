@@ -248,9 +248,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.5046477"
-     inkscape:cx="702.38113"
-     inkscape:cy="358.23239"
+     inkscape:zoom="0.23643258"
+     inkscape:cx="1029.3162"
+     inkscape:cy="876.60782"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -433,6 +433,12 @@
        style="fill:#f9b55a;stroke-width:0.6925959"
        d="m 149.78657,239.85781 c -51.971033,0 -102.222733,2.40924 -149.786876,6.89682 V 297 c 0,0.0632 0.05075,0.11394 0.113947,0.11394 H 299.75577 c 0.0227,0 0.0426,-0.008 0.0604,-0.0195 0.017,-0.0271 0.034,-0.0543 0.051,-0.0814 0,-0.004 0.003,-0.008 0.003,-0.013 v -50.2168 c -25.27829,-2.39304 -51.31476,-4.19741 -77.97415,-5.35656 -23.59259,-1.0382 -47.66242,-1.56884 -72.10898,-1.56884 z"
        id="path2800" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       style="fill:#efaa56;fill-opacity:1;stroke-width:0.6925959"
+       d="m 90.070617,240.32554 c -30.8357,1.30846 -60.855667,3.4687 -89.835176,6.40517 17.547541,1.97064 48.122526,5.2071 68.632056,6.71783 l 43.210843,-11.02542 c -7.35787,-0.70309 -14.714973,-1.40604 -22.007723,-2.09758 z"
+       id="path2800-5" />
     <rect
        x="89.45401"
        y="213.83603"
@@ -522,6 +528,20 @@
        transform="rotate(-45)"
        y="302.97604"
        x="-13.527884" />
+    <g
+       id="g3263"
+       transform="translate(-3.06e-4,0.11413)">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3241"
+         d="m 138.77009,239.80731 88.38888,11.7242 2.77957,-2.3209 -83.52644,-9.44744 c -2.55445,0.005 -5.0961,0.0274 -7.64201,0.0441 z"
+         style="fill:#efaa56;fill-opacity:1;stroke-width:0.6925959" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path2800-94"
+         d="m 129.30819,239.87459 60.14134,10.12388 0.61423,-0.51258 18.17284,2.94453 2.77957,-2.3209 -74.19547,-10.29099 c -2.50378,0.0194 -5.01729,0.0255 -7.51251,0.0561 z"
+         style="fill:#efaa56;fill-opacity:1;stroke-width:0.6925959" />
+    </g>
     <path
        inkscape:connector-curvature="0"
        style="fill:#808080;stroke-width:0.11448011"
