@@ -1,16 +1,15 @@
 var roomcount = 6; // change if you want different number of rooms
+var roomnames = ["Solar Suite","Lunar Lounge","Hubble Hangout","Comet Cove","Asteroid Atrium","Kuiper Cabin"];
 
 if (roomcount > 6) {
+  roomnames = [];
+  for (i=1;i<=roomcount;i++) {
+    roomnames.push(`room${i}`);
+  }
+
   qs('#backimg').style = "display:none";
-  qs('#navbar > h2:nth-of-type(1)').style = "color:#31393C;";
-  qs('#navbar > h2:nth-of-type(2)').style = "color:#31393C;";
   qs('body').style = `
     overflow-y:scroll;
-    background:#ffffff;
-  `;
-  qs('#logo > h1').style = `
-    color:#31393C;
-    font-size:2.5rem;
   `;
   qs('#roomcont').style = `
     row-gap:70px;
@@ -29,7 +28,7 @@ for (i=1;i<=roomcount;i++) {
   qs('#roomcont').insertAdjacentHTML('beforeend',`
     <div id="room${i}" class="room">
       <img src="unlocked-padlock.svg" onclick="roomlock('room${i}')">
-      <h2>Room ${i}</h2>
+      <h2>${roomnames[i-1]}</h2>
       <input type="text" onkeypress="entercheck('room${i}',event)" placeholder="Check guests here">
       <button onmousedown="check('room${i}')">Check In/Out</button>
       <ol></ol>
