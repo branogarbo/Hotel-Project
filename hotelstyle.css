@@ -1,6 +1,6 @@
 body {
   margin:0;
-  background:#153e57ff;
+  background:#153d56;
   overflow:hidden;
 }
 
@@ -34,7 +34,7 @@ body {
 }
 
 body > *:not(#backimg) {
-  animation:fadein 0.45s ease-out 0.2s both;
+  animation:fadein 0.45s ease-out 0.5s both;
 }
 @keyframes fadein {
   0% {

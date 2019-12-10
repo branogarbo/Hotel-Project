@@ -257,7 +257,7 @@
      inkscape:snap-page="true"
      inkscape:snap-bbox="true"
      inkscape:bbox-nodes="true"
-     inkscape:snap-global="false"
+     inkscape:snap-global="true"
      inkscape:window-width="2256"
      inkscape:window-height="1410"
      inkscape:window-x="-11"
@@ -273,7 +273,7 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:snap-center="true"
-     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-smooth-nodes="false"
      inkscape:measure-start="0,0"
      inkscape:measure-end="0,0" />
   <metadata
@@ -284,7 +284,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
