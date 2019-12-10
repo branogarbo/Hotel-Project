@@ -1,5 +1,5 @@
 var roomcount = 6; // change if you want different number of rooms
-var roomnames = ["Solar Suite","Lunar Lounge","Hubble Hangout","Comet Cove","Asteroid Atrium","Kuiper Cabin"];
+var roomnames = ["Solar Suite","Lunar Loft","Hubble Hangout","Comet Cove","Asteroid Atrium","Kuiper Cabin"];
 
 if (roomcount > 6) {
   roomnames = [];
