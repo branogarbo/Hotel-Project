@@ -1,8 +1,6 @@
 var roomcount = 6; // change if you want different number of rooms
 var roomnames = ["Solar Suite","Lunar Loft","Hubble Hangout","Comet Cove","Asteroid Atrium","Kuiper Cabin"];
 
-window.alert(window.getComputedStyle(qs('.room'),null).getPropertyValue('width');
-
 if (roomcount > 6) {
   roomnames = [];
   for (i=1;i<=roomcount;i++) {
@@ -175,3 +173,4 @@ function roomlock(room) {
     qs(`#${room} button`).disabled = false;
   }
 }
+window.alert(window.getComputedStyle(qs('.room'),null).getPropertyValue('width');
