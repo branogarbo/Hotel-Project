@@ -173,4 +173,4 @@ function roomlock(room) {
     qs(`#${room} button`).disabled = false;
   }
 }
-window.alert(window.getComputedStyle(qs(#room1'),null).getPropertyValue('width');
+window.alert(window.getComputedStyle(qs(#room1'),null).getPropertyValue('width'));
