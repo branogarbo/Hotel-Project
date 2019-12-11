@@ -24,7 +24,7 @@ body {
   animation:starrotate 200s linear infinite both;
   position:absolute;
   left:-30%;
-  bottom:-20%;
+  bottom:-23%;
   z-index:-1;
 }
 
@@ -108,6 +108,7 @@ body > *:not(#backimg) {
 }
 
 .room input {
+  width:172px;
   padding:5px;
   border-radius:3px;
   border:none;
