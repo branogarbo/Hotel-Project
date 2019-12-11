@@ -92,7 +92,6 @@ body > *:not(#backimg) {
 }
 
 .room {
-  width:300px;
   border-radius:7px;
   padding:20px 30px;
   height:217.833px;
