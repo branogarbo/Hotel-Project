@@ -100,7 +100,6 @@ body > *:not(#backimg) {
 }
 
 .room button {
-  float:right;
   background:#ffffff;
   outline:none;
   border-radius:3px;
